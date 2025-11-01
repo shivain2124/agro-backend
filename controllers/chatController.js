@@ -7,7 +7,7 @@ import OpenAI from "openai";
 // Initialize Grok client
 const grok = new OpenAI({
   apiKey: process.env.GROK_API_KEY,
-  baseURL: "https://api.x.ai/v1",
+  baseURL: "https://api.groq.com/openai/v1",
 });
 
 function buildFieldAdvice(sample, crops) {
@@ -111,7 +111,7 @@ Task: Answer helpfully for a farmer in 2–6 sentences. Focus on practical soil 
 
     // Call Grok API
     const response = await grok.chat.completions.create({
-      model: "grok-2-vision-1212", // Grok model with vision capability
+      model: "meta-llama/llama-4-scout-17b-16e-instruct", // Grok model with vision capability
       messages: [
         {
           role: "user",
