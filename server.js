@@ -6,8 +6,8 @@ import dotenv from "dotenv";
 import authRoutes from "./routes/authRoutes.js";
 import soilRoutes from "./routes/soilRoutes.js";
 import chatRoutes from "./routes/chatRoutes.js";
-import mlRoutes from './routes/mlRoutes.js'; 
-import ingestRoutes from './routes/ingestRoutes.js';
+import mlRoutes from "./routes/mlRoutes.js";
+import ingestRoutes from "./routes/ingestRoutes.js";
 
 dotenv.config();
 const app = express();
@@ -25,8 +25,8 @@ app.use(
 app.use("/api/auth", authRoutes);
 app.use("/api/soil", soilRoutes);
 app.use("/api/chat", chatRoutes);
-app.use('/api/ml', mlRoutes);
-app.use('/api/ingest', ingestRoutes);
+app.use("/api/ml", mlRoutes);
+app.use("/api/ingest", ingestRoutes);
 
 mongoose
   .connect(process.env.MONGO_URI, {
@@ -35,7 +35,7 @@ mongoose
   })
   .then(() => {
     console.log("MongoDB connected");
-    const port = process.env.PORT || 5000;
+    const port = process.env.PORT || 5173;
     app.listen(port, () => console.log(`Server running on port ${port}`));
   })
   .catch((err) => console.error(err));
